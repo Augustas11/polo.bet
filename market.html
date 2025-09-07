@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polo.Bet - Market</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+body {
+font-family: 'Inter', sans-serif;
+background-color: #1A1A1A;
+color: #E5E7EB; /* A slightly off-white for better readability */
+}
+.pump-fun-gradient {
+background: linear-gradient(90deg, #27C8A9, #34D399);
+}
+.trade-card {
+background-color: #2D3748; /* A darker gray */
+border: 1px solid #4A5568;
+}
+.tab-active {
+background-color: #4A5568;
+color: #FFFFFF;
+}
+.tab-inactive {
+background-color: transparent;
+color: #A0AEC0;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+input[type="number"] {
+-moz-appearance: textfield;
+}
+.chart-gradient {
+fill: url(#price-gradient);
+}
+</style>
+</head>
+<body class="min-h-screen">
+
+<!-- Header -->
+<header class="p-4 border-b border-gray-700">
+<nav class="container mx-auto flex justify-between items-center">
+<h1 class="text-2xl font-bold tracking-tight text-white">Polo.Bet</h1>
+<button class="pump-fun-gradient text-black font-bold py-2 px-4 rounded-lg hover:opacity-90 transition-opacity">
+Connect Wallet
+</button>
+</nav>
+</header>
+
+<!-- Main Content -->
+<main class="container mx-auto p-4 md:p-8">
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+<!-- Left Column: Chart and Market Details -->
+<div class="lg:col-span-2 space-y-8">
+<!-- Market Title -->
+<div>
+<h2 class="text-3xl md:text-4xl font-bold text-white">Will Donald Trump win the 2028 US presidential election?</h2>
+<p class="text-gray-400 mt-2">Market ends on November 5, 2027</p>
+</div>
+
+<!-- Chart -->
+<div class="trade-card rounded-xl p-6">
+<div class="flex justify-between items-center mb-4">
+<div>
+<p class="text-sm text-gray-400">YES price</p>
+<p class="text-3xl font-bold text-[#27C8A9]">$0.58</p>
+</div>
+<div class="flex space-x-2 text-sm">
+<button class="py-1 px-3 rounded-md bg-gray-600">1H</button>
+<button class="py-1 px-3 rounded-md bg-gray-600">1D</button>
+<button class="py-1 px-3 rounded-md bg-gray-600">7D</button>
+<button class="py-1 px-3 rounded-md bg-gray-600">ALL</button>
+</div>
+</div>
+<!-- This is a static SVG placeholder for the chart -->
+<div class="h-64 md:h-96">
+<svg width="100%" height="100%" viewBox="0 0 400 150" preserveAspectRatio="none">
+<defs>
+<linearGradient id="price-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+<stop offset="0%" style="stop-color:#27C8A9;stop-opacity:0.4"/>
+<stop offset="100%" style="stop-color:#1A1A1A;stop-opacity:0"/>
+</linearGradient>
+</defs>
+<path d="M 0 120 C 40 100, 80 60, 120 70 S 200 110, 240 90 S 320 30, 360 40 L 400 30" stroke="#27C8A9" fill="none" stroke-width="2"/>
+<path d="M 0 120 C 40 100, 80 60, 120 70 S 200 110, 240 90 S 320 30, 360 40 L 400 30 V 150 H 0 Z" class="chart-gradient" />
+</svg>
+</div>
+</div>
+
+<!-- Market Details -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+<div class="trade-card rounded-xl p-4">
+<p class="text-sm text-gray-400">Volume</p>
+<p class="text-xl font-bold text-white">$4,231,987</p>
+</div>
+<div class="trade-card rounded-xl p-4">
+<p class="text-sm text-gray-400">Liquidity</p>
+<p class="text-xl font-bold text-white">$1,102,345</p>
+</div>
+<div class="trade-card rounded-xl p-4">
+<p class="text-sm text-gray-400">Participants</p>
+<p class="text-xl font-bold text-white">1,592</p>
+</div>
+<div class="trade-card rounded-xl p-4">
+<p class="text-sm text-gray-400">Ends In</p>
+<p class="text-xl font-bold text-white">59 Days</p>
+</div>
+</div>
+</div>
+
+<!-- Right Column: Trading Panel -->
+<div class="trade-card rounded-xl p-6 h-fit">
+<div class="flex bg-gray-900 rounded-lg p-1 mb-4">
+<button id="buy-tab" class="w-1/2 py-2 rounded-md font-bold transition-colors tab-active">Buy</button>
+<button id="sell-tab" class="w-1/2 py-2 rounded-md font-bold transition-colors tab-inactive">Sell</button>
+</div>
+
+<div class="grid grid-cols-2 gap-4 mb-4">
+<div class="border-2 border-[#27C8A9] bg-[#27C8A9]/10 rounded-lg p-4 text-center cursor-pointer">
+<p class="font-bold text-lg text-white">YES</p>
+<p class="text-[#27C8A9]">$0.58</p>
+</div>
+<div class="border border-gray-600 hover:border-gray-500 rounded-lg p-4 text-center cursor-pointer">
+<p class="font-bold text-lg text-white">NO</p>
+<p class="text-gray-400">$0.42</p>
+</div>
+</div>
+
+<div class="space-y-4">
+<div>
+<label for="amount" class="text-sm text-gray-400 mb-1 block">Amount (SOL)</label>
+<input type="number" id="amount" placeholder="0.00" class="w-full bg-gray-900 border border-gray-700 rounded-lg p-3 focus:ring-2 focus:ring-[#27C8A9] focus:outline-none">
+</div>
+
+<div class="space-y-2 text-sm text-gray-300 border-t border-gray-700 pt-4">
+<div class="flex justify-between"><span>Price per Share</span> <span>$0.58</span></div>
+<div class="flex justify-between"><span>Potential Return</span> <span class="text-white font-bold">1.72x</span></div>
+<div class="flex justify-between"><span>You will receive</span> <span>~172 YES shares</span></div>
+</div>
+
+<button class="pump-fun-gradient text-black w-full font-bold py-3 rounded-lg text-lg hover:opacity-90 transition-opacity">
+Buy YES
+</button>
+</div>
+</div>
+</div>
+
+<!-- Bottom Section: Positions, Orders, Trades -->
+<div class="mt-12">
+<div class="flex border-b border-gray-700 mb-4">
+<button id="positions-tab" class="py-2 px-4 font-bold transition-colors tab-active-bottom border-b-2 border-[#27C8A9] text-white">My Positions</button>
+<button id="orders-tab" class="py-2 px-4 font-bold transition-colors tab-inactive-bottom text-gray-400">Orders</button>
+<button id="trades-tab" class="py-2 px-4 font-bold transition-colors tab-inactive-bottom text-gray-400">Trades</button>
+</div>
+
+<!-- Content for tabs -->
+<div id="positions-content">
+<!-- Example of what a position would look like -->
+<div class="hidden md:grid grid-cols-5 gap-4 text-sm text-gray-400 p-4">
+<span>Outcome</span>
+<span class="text-right">Shares</span>
+<span class="text-right">Avg. Price</span>
+<span class="text-right">Current Value</span>
+<span class="text-right">Return</span>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-5 gap-4 bg-gray-800/50 p-4 rounded-lg items-center">
+<div class="font-bold text-white md:col-span-1 col-span-2">YES</div>
+<div class="text-right"><span class="md:hidden text-gray-400">Shares: </span>500</div>
+<div class="text-right"><span class="md:hidden text-gray-400">Avg. Price: </span>$0.52</div>
+<div class="text-right"><span class="md:hidden text-gray-400">Value: </span>$290.00</div>
+<div class="text-right text-green-400"><span class="md:hidden text-gray-400">Return: </span>+11.5%</div>
+</div>
+</div>
+<div id="orders-content" class="hidden text-center text-gray-400 p-8">
+You have no open orders in this market.
+</div>
+<div id="trades-content" class="hidden text-center text-gray-400 p-8">
+No trades have been executed for this market.
+</div>
+</div>
+</main>
+
+<script>
+// Simple tab switching logic
+const buyTab = document.getElementById('buy-tab');
+const sellTab = document.getElementById('sell-tab');
+
+const positionsTab = document.getElementById('positions-tab');
+const ordersTab = document.getElementById('orders-tab');
+const tradesTab = document.getElementById('trades-tab');
+
+const positionsContent = document.getElementById('positions-content');
+const ordersContent = document.getElementById('orders-content');
+const tradesContent = document.getElementById('trades-content');
+
+buyTab.addEventListener('click', () => {
+buyTab.classList.replace('tab-inactive', 'tab-active');
+sellTab.classList.replace('tab-active', 'tab-inactive');
+});
+
+sellTab.addEventListener('click', () => {
+sellTab.classList.replace('tab-inactive', 'tab-active');
+buyTab.classList.replace('tab-active', 'tab-inactive');
+});
+
+function switchBottomTab(activeTab, activeContent) {
+[positionsTab, ordersTab, tradesTab].forEach(tab => {
+tab.classList.remove('border-[#27C8A9]', 'text-white');
+tab.classList.add('text-gray-400');
+});
+activeTab.classList.add('border-[#27C8A9]', 'text-white');
+activeTab.classList.remove('text-gray-400');
+
+[positionsContent, ordersContent, tradesContent].forEach(content => {
+content.classList.add('hidden');
+});
+activeContent.classList.remove('hidden');
+}
+
+positionsTab.addEventListener('click', () => switchBottomTab(positionsTab, positionsContent));
+ordersTab.addEventListener('click', () => switchBottomTab(ordersTab, ordersContent));
+tradesTab.addEventListener('click', () => switchBottomTab(tradesTab, tradesContent));
+
+// Initial style for bottom tabs
+positionsTab.style.borderBottomWidth = '2px';
+ordersTab.style.borderBottomWidth = '2px';
+tradesTab.style.borderBottomWidth = '2px';
+[ordersTab, tradesTab].forEach(tab => tab.style.borderColor = 'transparent');
+
+positionsTab.addEventListener('click', () => {
+positionsTab.style.borderColor = '#27C8A9';
+ordersTab.style.borderColor = 'transparent';
+tradesTab.style.borderColor = 'transparent';
+switchBottomTab(positionsTab, positionsContent)
+});
+ordersTab.addEventListener('click', () => {
+positionsTab.style.borderColor = 'transparent';
+ordersTab.style.borderColor = '#27C8A9';
+tradesTab.style.borderColor = 'transparent';
+switchBottomTab(ordersTab, ordersContent)
+});
+tradesTab.addEventListener('click', () => {
+positionsTab.style.borderColor = 'transparent';
+ordersTab.style.borderColor = 'transparent';
+tradesTab.style.borderColor = '#27C8A9';
+switchBottomTab(tradesTab, tradesContent)
+});
+
+</script>
+</body>
+</html>
